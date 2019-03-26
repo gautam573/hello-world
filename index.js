@@ -20,22 +20,22 @@ hbs.registerHelper('message', (text) => {
     return text.toUpperCase();
 });
 
-app.use((request,response,next) => {
-    response.render('main.hbs',{
-        title : 'Info Page',
-        year: new Date().getFullYear(),
-        welcome: 'The Homepage',
-        heading : 'Info'
-    });
-    var time = new Date ().toString();
-    // console.log(${time}: ${request.method} ${request.url});
-    var log = (`${time}: ${request.method} ${request.url}`);
-    fs.appendFile('server.log', log + '/n', (error) => {
-        if (error) {
-            console.log('Unable to log message');
-        }
-    });
-});
+// app.use((request,response,next) => {
+//     response.render('main.hbs',{
+//         title : 'Info Page',
+//         year: new Date().getFullYear(),
+//         welcome: 'The Homepage',
+//         heading : 'Info'
+//     });
+//     var time = new Date ().toString();
+//     console.log(${time}: ${request.method} ${request.url});
+    // var log = (`${time}: ${request.method} ${request.url}`);
+    // fs.appendFile('server.log', log + '/n', (error) => {
+    //     if (error) {
+    //         console.log('Unable to log message');
+    //     }
+    // });
+// });
 
 app.get('/', (request, response) => {
     response.send({
